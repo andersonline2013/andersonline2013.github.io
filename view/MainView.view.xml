@@ -1,0 +1,128 @@
+<mvc:View 
+controllerName="covid.controller.MainView" xmlns="sap.m" xmlns:core="sap.ui.core"
+xmlns:f="sap.f" xmlns:s="sap.suite.ui.commons"
+xmlns:card="sap.f.cards" 
+xmlns:viz="sap.viz.ui5.controls" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" 
+xmlns:viz.data="sap.viz.ui5.data" xmlns:mvc="sap.ui.core.mvc">
+
+	<FlexBox
+	justifyContent="Center">
+		<items>
+			<f:Card
+			class="sapUiMediumMargin" width="300px">
+				<f:header>
+					<card:NumericHeader
+					title="{i18n>confirmed}"
+					number="{/dataCovid/0/value}"
+					state="Critical"
+					details="{i18n>lastUpdate} {/lastUpdate}"/>
+				</f:header>
+			</f:Card>
+			<f:Card
+			class="sapUiMediumMargin" width="300px">
+				<f:header>
+					<card:NumericHeader
+					title="{i18n>recovered}"
+					number="{/dataCovid/2/value}"
+					state="Good"
+					details="{i18n>lastUpdate} {/lastUpdate}"/>
+				</f:header>
+			</f:Card>
+			<f:Card
+			class="sapUiMediumMargin" width="300px">
+				<f:header>
+					<card:NumericHeader
+					title="{i18n>deaths}"
+					number="{/dataCovid/1/value}"
+					state="Error"
+					details="{i18n>lastUpdate} {/lastUpdate}"/>
+				</f:header>
+			</f:Card>
+		</items>
+	</FlexBox>
+
+	<s:ChartContainer id="idChartContainer" autoAdjustHeight="true" showLegendButton="true" showFullScreen="true"
+	showPersonalization="false">
+		<s:dimensionSelectors>
+			<ComboBox			  
+			id="cmbVizFrame"
+			placeholder="{i18n>selectCountry}"
+			items="{/countries}"
+			selectionChange="onChangeCombo">
+				<core:Item key="{code}" text="{name}" />
+			</ComboBox>
+		</s:dimensionSelectors>
+		<s:content>
+			<s:ChartContainerContent icon="sap-icon://line-chart"
+			title="Line Chart"
+			id="idChartContainerContent">
+				<s:content>
+
+					<viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+					vizType='timeseries_column' >
+						<viz:dataset>
+							<viz.data:FlattenedDataset data="{/dataCovid}">
+								<viz.data:dimensions>
+									<viz.data:DimensionDefinition name="Dia" value="{date}" dataType="date" />
+								</viz.data:dimensions>
+								<viz.data:measures>
+									<viz.data:MeasureDefinition name="Confirmados" value="{confirmed}" />
+									<viz.data:MeasureDefinition name="Mortes" value="{deaths}" />
+								</viz.data:measures>
+							</viz.data:FlattenedDataset>
+						</viz:dataset>
+
+						<viz:feeds>
+							<viz.feeds:FeedItem id="value1" uid="valueAxis" type="Measure" values="Confirmados" />
+							<viz.feeds:FeedItem id="value2" uid="valueAxis" type="Measure" values="Mortes" />
+							<viz.feeds:FeedItem uid="timeAxis" type="Dimension" values="Dia" />
+						</viz:feeds>
+					</viz:VizFrame>
+
+
+				</s:content>
+			</s:ChartContainerContent>
+		</s:content>
+	</s:ChartContainer>
+
+	<s:ChartContainer id="idChartContainer2" autoAdjustHeight="true" showLegendButton="true" showFullScreen="true"
+	showPersonalization="false" >
+		<s:dimensionSelectors>
+			<ComboBox
+			id="cmbVizFrame1"
+			items="{/countries}"
+			selectionChange="onChangeCombo">
+				<core:Item key="{code}" text="{name}" />
+			</ComboBox>
+		</s:dimensionSelectors>
+		<s:content>
+			<s:ChartContainerContent >
+				<s:content>
+					<viz:VizFrame id="idVizFrameDonut" uiConfig="{applicationSet:'fiori'}" 
+					vizType='pie' >
+						<viz:dataset>
+							<viz.data:FlattenedDataset data="{/dataCovid}">
+								<viz.data:dimensions>
+									<viz.data:DimensionDefinition name="Tipo"
+									value="{type}" />
+								</viz.data:dimensions>
+								<viz.data:measures>
+									<viz.data:MeasureDefinition name="Casos"
+									value="{value}" />
+								</viz.data:measures>
+							</viz.data:FlattenedDataset>
+						</viz:dataset>
+
+						<viz:feeds>
+							<viz.feeds:FeedItem uid="size" type="Measure"
+							values="Casos" />
+							<viz.feeds:FeedItem uid="color" type="Dimension"
+							values="Tipo" />
+						</viz:feeds>
+					</viz:VizFrame>
+
+				</s:content>
+			</s:ChartContainerContent>
+		</s:content>
+	</s:ChartContainer>
+</mvc:View>

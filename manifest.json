@@ -1,7 +1,7 @@
 {
   "_version": "1.12.0",
   "sap.app": {
-    "id": "firstApp",
+    "id": "covidApp",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -28,7 +28,7 @@
   },
   "sap.ui5": {
     "rootView": {
-      "viewName": "com.myorg.firstApp.view.MainView",
+      "viewName": "covid.view.MainView",
       "type": "XML",
       "async": true,
       "id": "idAppControl"
@@ -49,7 +49,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "com.myorg.firstApp.i18n.i18n"
+          "bundleName": "covid.i18n.i18n"
         }
       }
     },
@@ -64,7 +64,7 @@
       "config": {
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
-        "viewPath": "com.myorg.firstApp.view",
+        "viewPath": "covid.view",
         "controlId": "idAppControl",
         "controlAggregation": "pages",
         "async": true

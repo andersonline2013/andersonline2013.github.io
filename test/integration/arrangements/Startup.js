@@ -3,12 +3,12 @@ sap.ui.define([
 ], function(Opa5) {
   "use strict";
 
-  return Opa5.extend("com.myorg.firstApp.test.integration.arrangements.Startup", {
+  return Opa5.extend("covid.test.integration.arrangements.Startup", {
 
     iStartMyApp: function () {
       this.iStartMyUIComponent({
         componentConfig: {
-          name: "com.myorg.firstApp",
+          name: "covid",
           async: true,
           manifest: true
         }
