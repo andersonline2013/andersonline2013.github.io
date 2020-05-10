@@ -5,41 +5,36 @@ xmlns:card="sap.f.cards"
 xmlns:viz="sap.viz.ui5.controls" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" 
 xmlns:viz.data="sap.viz.ui5.data" xmlns:mvc="sap.ui.core.mvc">
 
-	<FlexBox
-	justifyContent="Center">
-		<items>
-			<f:Card
-			class="sapUiMediumMargin" width="300px">
-				<f:header>
-					<card:NumericHeader
-					title="{i18n>confirmed}"
-					number="{/dataCovid/0/value}"
-					state="Critical"
-					details="{i18n>lastUpdate} {/lastUpdate}"/>
-				</f:header>
-			</f:Card>
-			<f:Card
-			class="sapUiMediumMargin" width="300px">
-				<f:header>
-					<card:NumericHeader
-					title="{i18n>recovered}"
-					number="{/dataCovid/2/value}"
-					state="Good"
-					details="{i18n>lastUpdate} {/lastUpdate}"/>
-				</f:header>
-			</f:Card>
-			<f:Card
-			class="sapUiMediumMargin" width="300px">
-				<f:header>
-					<card:NumericHeader
-					title="{i18n>deaths}"
-					number="{/dataCovid/1/value}"
-					state="Error"
-					details="{i18n>lastUpdate} {/lastUpdate}"/>
-				</f:header>
-			</f:Card>
-		</items>
-	</FlexBox>
+	<f:Card
+	class="sapUiMediumMargin" width="300px">
+		<f:header>
+			<card:NumericHeader
+			title="{i18n>confirmed}"
+			number="{/dataCovid/0/value}"
+			state="Critical"
+			details="{i18n>lastUpdate} {/lastUpdate}"/>
+		</f:header>
+	</f:Card>
+	<f:Card
+	class="sapUiMediumMargin" width="300px">
+		<f:header>
+			<card:NumericHeader
+			title="{i18n>recovered}"
+			number="{/dataCovid/2/value}"
+			state="Good"
+			details="{i18n>lastUpdate} {/lastUpdate}"/>
+		</f:header>
+	</f:Card>
+	<f:Card
+	class="sapUiMediumMargin" width="300px">
+		<f:header>
+			<card:NumericHeader
+			title="{i18n>deaths}"
+			number="{/dataCovid/1/value}"
+			state="Error"
+			details="{i18n>lastUpdate} {/lastUpdate}"/>
+		</f:header>
+	</f:Card>
 
 	<s:ChartContainer id="idChartContainer" autoAdjustHeight="true" showLegendButton="true" showFullScreen="true"
 	showPersonalization="false">
