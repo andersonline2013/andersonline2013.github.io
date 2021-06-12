@@ -114,6 +114,7 @@ sap.ui.define([
 		const data = this.getDataByCountries(country);
 		data.countries = this.getCountries();
 		const oModel = new JSONModel(data);
+oModel.setSizeLimit(3000)
 		this.getView().setModel(oModel);
 		
 		this.byId("cmbVizFrame1").setSelectedKey(this.countrySelected);
