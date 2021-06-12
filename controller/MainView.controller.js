@@ -83,6 +83,7 @@ sap.ui.define([
 		const data = this.getDataByCountries();
 		data.countries = this.getCountries();
 		const oModel = new JSONModel(data);
+oModel.setSizeLimit(3000)
 		this.getView().setModel(oModel);
 
 		const daily = this.getData();
