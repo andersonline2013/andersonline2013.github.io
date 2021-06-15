@@ -1,2 +1,5 @@
 # COVID
-Projeto para exibir informações sobre o andamento dos casos de COVID 19, desenvolvido em SAPUI5
+Project to display information on the progress of COVID 19 cases, developed in SAPUI5
+
+https://andersonline2013.github.io/
+
