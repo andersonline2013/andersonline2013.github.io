@@ -83,7 +83,7 @@ sap.ui.define([
 		const data = this.getDataByCountries();
 		data.countries = this.getCountries();
 		const oModel = new JSONModel(data);
-oModel.setSizeLimit(3000)
+		oModel.setSizeLimit(3000)
 		this.getView().setModel(oModel);
 
 		const daily = this.getData();
@@ -115,7 +115,7 @@ oModel.setSizeLimit(3000)
 		const data = this.getDataByCountries(country);
 		data.countries = this.getCountries();
 		const oModel = new JSONModel(data);
-oModel.setSizeLimit(3000)
+		oModel.setSizeLimit(3000)
 		this.getView().setModel(oModel);
 		
 		this.byId("cmbVizFrame1").setSelectedKey(this.countrySelected);
@@ -129,7 +129,6 @@ oModel.setSizeLimit(3000)
 			},
 			 dataLabel: {
 					visible: true,
-					formatString: ChartFormatter.DefaultPattern.SHORTFLOAT_MFD2
 			 },
 			title : {
 				visible : true,

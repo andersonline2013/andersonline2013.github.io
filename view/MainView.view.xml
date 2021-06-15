@@ -120,4 +120,8 @@ xmlns:viz.data="sap.viz.ui5.data" xmlns:mvc="sap.ui.core.mvc">
 			</s:ChartContainerContent>
 		</s:content>
 	</s:ChartContainer>
+	<Link
+				text="By https://covid19.mathdro.id/api"
+				target="_blank"
+				href="https://covid19.mathdro.id/api" />
 </mvc:View>
